@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    tools:context=".ui.auth.RecoverAccountFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Recuperar Senha"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewMensagem"
+            android:text="Informe seu email de cadastro para receber \n um link para alteração de senha."
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_marginTop="24dp"/>
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="E-mail"
+            android:id="@+id/textViewEmail"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="Digite seu e-mail"
+            android:inputType="textEmailAddress"
+            android:padding="10dp" />
+
+
+        <!-- Botão -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn"
+            android:text="Login"
+            android:textColor="@color/color_default"
+            app:backgroundTint="@null" />
+
+        <!-- ProgressBar -->
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:indeterminateTint="@color/white" />
+
+    </LinearLayout>
+</ScrollView>
