@@ -19,7 +19,10 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+
+
+
+       _binding = FragmentLoginBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -28,6 +31,7 @@ class LoginFragment : Fragment() {
         initListener()
     }
     private fun initListener(){
+
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
@@ -35,6 +39,10 @@ class LoginFragment : Fragment() {
         binding.btnRecover.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
+        binding.buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_global_homeFragment)
+        }
+
     }
 
 

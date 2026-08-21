@@ -16,16 +16,16 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:navigationIcon="@drawable/icback"
             android:paddingTop="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Recuperar Senha"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Recuperar Conta"
+                android:textColor="@color/white" />
 
         </com.google.android.material.appbar.MaterialToolbar>
         
