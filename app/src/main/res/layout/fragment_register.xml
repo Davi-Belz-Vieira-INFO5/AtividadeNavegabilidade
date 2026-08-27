@@ -17,6 +17,7 @@
 
         <!-- Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="20dp">
@@ -40,16 +41,17 @@
             android:text="E-mail"
             android:textColor="@color/white" />
 
+        <!-- Senha -->
         <EditText
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:id="@+id/editextEmail"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_edit_text"
             android:hint="Digite seu e-mail"
             android:inputType="textEmailAddress"
             android:padding="10dp" />
 
-        <!-- Senha -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
+            android:id="@+id/edittextSenha"
             android:background="@drawable/bg_edit_text"
             android:hint="Digite sua senha"
             android:inputType="textPassword"

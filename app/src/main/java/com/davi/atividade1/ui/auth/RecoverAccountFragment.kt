@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentRecoverAccountBinding
+import com.davi.atividade1.ui.util.initToolbar
 
 class RecoverAccountFragment : Fragment() {
 
@@ -22,6 +23,11 @@ class RecoverAccountFragment : Fragment() {
         _binding = FragmentRecoverAccountBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
     }
 
     override fun onDestroyView() {

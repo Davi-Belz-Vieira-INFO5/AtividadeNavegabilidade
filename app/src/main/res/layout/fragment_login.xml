@@ -29,6 +29,7 @@
             android:layout_height="48dp"
             android:hint="Digite seu e-mail"
             android:inputType="textEmailAddress"
+            android:id="@+id/editextEmail"
             android:padding="10dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_edit_text"/>
@@ -42,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:inputType="textPassword"
+            android:id="@+id/edittextSenha"
             android:hint="Digite sua senha"
             android:padding="10dp"
             android:layout_marginTop="4dp"
