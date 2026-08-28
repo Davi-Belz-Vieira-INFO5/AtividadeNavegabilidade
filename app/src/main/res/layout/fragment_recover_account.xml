@@ -51,20 +51,20 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"
+            android:id="@+id/editextEmail"
+            style="@style/EditTextTheme"
             android:hint="Digite seu e-mail"
-            android:inputType="textEmailAddress"
-            android:padding="10dp" />
+            android:inputType="textEmailAddress" />
 
 
         <!-- Botão -->
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/buttonEnviar"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bg_btn"
+            style="@style/ButtonTheme"
             android:text="Login"
-            android:textColor="@color/color_default"
             app:backgroundTint="@null" />
 
         <!-- ProgressBar -->

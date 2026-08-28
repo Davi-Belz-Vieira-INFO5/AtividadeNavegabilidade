@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentFormTaskBinding
 import com.davi.atividade1.ui.util.initToolbar
+import com.davi.atividade1.ui.util.showBottomSheet
 
 
 class FormTaskFragment : Fragment() {
@@ -30,6 +32,23 @@ class FormTaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(binding.toolbar)
+        initListener()
+    }
+
+    private fun initListener(){
+        binding.buttonSave.setOnClickListener{
+            valideData()
+        }
+    }
+
+    private fun valideData(){
+        val description = binding.editTextDescricao.text.toString().trim()
+
+        if (description.isNotBlank()){
+            Toast.makeText(requireContext(), "Tudo OK!", Toast.LENGTH_SHORT).show()
+        }else{
+            showBottomSheet(message = R.string.description_empty_form_task_fragment)
+        }
     }
 
     override fun onDestroyView() {

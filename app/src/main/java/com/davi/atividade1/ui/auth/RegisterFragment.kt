@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentRegisterBinding
 import com.davi.atividade1.ui.util.initToolbar
+import com.davi.atividade1.ui.util.showBottomSheet
 
 class RegisterFragment : Fragment() {
 
@@ -44,11 +45,10 @@ class RegisterFragment : Fragment() {
             if (senha.isNotBlank()){
                 Toast.makeText(requireContext(), "Tudo OK!", Toast.LENGTH_SHORT).show()
             }else {
-                Toast.makeText(requireContext(), "Preencha uma senha!", Toast.LENGTH_SHORT).show()
+                showBottomSheet(message = R.string.password_empty_register_fragment)
             }
-
-            }else{
-            Toast.makeText(requireContext(), "Preencha um email válido", Toast.LENGTH_SHORT).show()
+        }else{
+                showBottomSheet(message = R.string.email_empty_register_fragment)
         }
     }
 

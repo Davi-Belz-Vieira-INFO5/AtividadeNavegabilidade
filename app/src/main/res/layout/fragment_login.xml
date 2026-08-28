@@ -30,9 +30,8 @@
             android:hint="Digite seu e-mail"
             android:inputType="textEmailAddress"
             android:id="@+id/editextEmail"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            style="@style/EditTextTheme"
+            android:layout_marginTop="4dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,18 +44,16 @@
             android:inputType="textPassword"
             android:id="@+id/edittextSenha"
             android:hint="Digite sua senha"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/bg_edit_text"/>
+            style="@style/EditTextTheme"
+            android:layout_marginTop="4dp"/>
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:textColor="@color/color_default"
+            style="@style/ButtonTheme"
             app:backgroundTint="@null"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/bg_btn"/>
+            android:layout_marginTop="16dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
