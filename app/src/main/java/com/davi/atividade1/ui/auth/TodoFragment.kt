@@ -32,8 +32,8 @@ class TodoFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initlisteners()
-
-        initRecyclerViewTask(getTask())
+        initRecyclerViewTask()
+        getTask()
     }
     private fun initlisteners(){
         binding.floatingActionButton2.setOnClickListener {
@@ -41,12 +41,14 @@ class TodoFragment: Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask(taskList: List<Task>){
+    private fun initRecyclerViewTask(){
+        taskAdapter = TaskAdapter(requireContext(), ) { task, option -> optionSelected(task, option)}
 
-        taskAdapter = TaskAdapter(requireContext(), taskList) { task, option -> optionSelected(task, option)}
-        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewTask.setHasFixedSize(true)
-        binding.recyclerViewTask.adapter = taskAdapter
+        with(binding.recyclerViewTask){
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+            adapter = taskAdapter
+        }
     }
 
     private fun optionSelected(task: Task, option:Int){
@@ -66,13 +68,16 @@ class TodoFragment: Fragment() {
         }
     }
 
-    private fun getTask() = listOf(
-        Task("0", "Criar nova tela do app", Status.TODO),
-        Task("1", "Validar informações na tela de login", Status.TODO),
-        Task("2", "Adicionar nova funcionalidade no app", Status.TODO),
-        Task("3", "Salvar token localmente", Status.TODO),
-        Task("2", "Criar funcionalidades no logout no app", Status.TODO),
-    )
+    private fun getTask() {
+        val taskList = listOf(
+            Task("0", "Criar nova tela do app", Status.TODO),
+            Task("1", "Validar informações na tela de login", Status.TODO),
+            Task("2", "Adicionar nova funcionalidade no app", Status.TODO),
+            Task("3", "Salvar token localmente", Status.TODO),
+            Task("2", "Criar funcionalidades no logout no app", Status.TODO),
+        )
+        taskAdapter.submitList(taskList)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
