@@ -58,6 +58,9 @@ class DoingFragment: Fragment() {
             TaskAdapter.SELECT_REMOVER -> {
                 Toast.makeText(requireContext(), "Removendo ${task.description}", Toast.LENGTH_SHORT).show()
             }
+            TaskAdapter.SELECT_EDIT -> {
+                Toast.makeText(requireContext(), "Editando ${task.description}", Toast.LENGTH_SHORT).show()
+            }
             TaskAdapter.SELECT_DETAILS -> {
                 Toast.makeText(requireContext(), "Detalhes ${task.description}", Toast.LENGTH_SHORT).show()
             }
@@ -72,11 +75,11 @@ class DoingFragment: Fragment() {
 
     private fun getTask() {
         val taskList = listOf(
-            Task("0", "Criar nova tela do app", Status.DOING),
-            Task("1", "Validar informações na tela de logout", Status.DOING),
-            Task("2", "Adicionar nova funcionalidade de mídia", Status.DOING),
-            Task("3", "Salvar dados do usuário", Status.DOING),
-            Task("2", "Criar funcionalidades de chat no app", Status.DOING),
+            Task("10", "Criar nova tela do app", Status.DOING),
+            Task("11", "Validar informações na tela de logout", Status.DOING),
+            Task("12", "Adicionar nova funcionalidade de mídia", Status.DOING),
+            Task("13", "Salvar dados do usuário", Status.DOING),
+            Task("14", "Criar funcionalidades de chat no app", Status.DOING),
         )
         taskAdapter.submitList(taskList)
     }

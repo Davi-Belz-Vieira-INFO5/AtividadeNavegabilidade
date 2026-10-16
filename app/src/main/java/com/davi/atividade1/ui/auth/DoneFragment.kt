@@ -28,7 +28,6 @@ class DoneFragment : Fragment() {
     ): View {
 
         _binding = DoneFragmentBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -41,7 +40,7 @@ class DoneFragment : Fragment() {
 
     private fun initlisteners(){
         binding.floatingActionButton2.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_formTaskFragment2)
+            findNavController().navigate((R.id.action_homeFragment_to_formTaskFragment2))
         }
     }
 
@@ -50,8 +49,8 @@ class DoneFragment : Fragment() {
 
         with(binding.recyclerViewTask){
             layoutManager = LinearLayoutManager(requireContext())
-                setHasFixedSize(true)
-                adapter = taskAdapter
+            setHasFixedSize(true)
+            adapter = taskAdapter
         }
     }
 
@@ -74,11 +73,11 @@ class DoneFragment : Fragment() {
 
     private fun getTask() {
         val taskList = listOf(
-            Task("0", "salvar projeto no Github", Status.DONE),
-            Task("1", "Validar informações na tela de login", Status.DONE),
-            Task("2", "Adicionar novas funcionalidade no app", Status.DONE),
-            Task("3", "Salvar dados do usuário", Status.DONE),
-            Task("2", "Criar funcionalidades no login no app", Status.DONE),
+            Task("5", "salvar projeto no Github", Status.DONE),
+            Task("6", "Validar informações na tela de login", Status.DONE),
+            Task("7", "Adicionar novas funcionalidade no app", Status.DONE),
+            Task("8", "Salvar dados do usuário", Status.DONE),
+            Task("9", "Criar funcionalidades no login no app", Status.DONE),
         )
         taskAdapter.submitList(taskList)
     }

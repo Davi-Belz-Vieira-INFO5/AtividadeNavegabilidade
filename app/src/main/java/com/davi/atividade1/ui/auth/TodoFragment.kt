@@ -62,7 +62,7 @@ class TodoFragment: Fragment() {
             TaskAdapter.SELECT_DETAILS -> {
                 Toast.makeText(requireContext(), "Detalhes ${task.description}", Toast.LENGTH_SHORT).show()
             }
-            TaskAdapter.SELECT_NEXT -> {
+            TaskAdapter.SELECT_FORWARD -> {
                 Toast.makeText(requireContext(), "Próximo", Toast.LENGTH_SHORT).show()
             }
         }
@@ -74,7 +74,7 @@ class TodoFragment: Fragment() {
             Task("1", "Validar informações na tela de login", Status.TODO),
             Task("2", "Adicionar nova funcionalidade no app", Status.TODO),
             Task("3", "Salvar token localmente", Status.TODO),
-            Task("2", "Criar funcionalidades no logout no app", Status.TODO),
+            Task("4", "Criar funcionalidades no logout no app", Status.TODO),
         )
         taskAdapter.submitList(taskList)
     }
