@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentLoginBinding
-import com.davi.atividade1.databinding.FragmentRegisterBinding
 import com.davi.atividade1.ui.util.showBottomSheet
 
 class LoginFragment : Fragment() {
@@ -21,8 +20,6 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -42,7 +39,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_global_homeFragment)
+            validateData()
         }
 
     }

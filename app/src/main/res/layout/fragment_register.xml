@@ -20,7 +20,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp">
+            app:navigationIcon="@drawable/icback"
+            android:paddingTop="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -28,7 +29,6 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Criar Conta"
                 android:textColor="@color/white"
-                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             style="@style/ButtonTheme"
-            android:text="Login"
+            android:text="Enviar"
             app:backgroundTint="@null" />
 
         <!-- ProgressBar -->
