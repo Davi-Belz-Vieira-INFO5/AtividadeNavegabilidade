@@ -33,8 +33,8 @@ class DoingFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initlisteners()
-        initRecyclerViewTask()
-        getTask()
+
+        initRecyclerViewTask(getTask())
     }
 
     private fun initlisteners(){
@@ -43,14 +43,12 @@ class DoingFragment: Fragment() {
         }
     }
 
-    private fun initRecyclerViewTask(){
-        taskAdapter = TaskAdapter(requireContext(), ) { task, option -> optionSelected(task, option)}
+    private fun initRecyclerViewTask(taskList: List<Task>){
 
-        with(binding.recyclerViewTask){
-            layoutManager = LinearLayoutManager(requireContext())
-            setHasFixedSize(true)
-            adapter = taskAdapter
-        }
+        taskAdapter = TaskAdapter(requireContext(), taskList) { task, option -> optionSelected(task, option)}
+        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewTask.setHasFixedSize(true)
+        binding.recyclerViewTask.adapter = taskAdapter
     }
 
     private fun optionSelected(task: Task, option:Int){
@@ -64,23 +62,19 @@ class DoingFragment: Fragment() {
             TaskAdapter.SELECT_DETAILS -> {
                 Toast.makeText(requireContext(), "Detalhes ${task.description}", Toast.LENGTH_SHORT).show()
             }
-            TaskAdapter.SELECT_FORWARD -> {
-                Toast.makeText(requireContext(), "Próximo ${task.description}", Toast.LENGTH_SHORT).show()
-            }
             TaskAdapter.SELECT_BACK -> {
                 Toast.makeText(requireContext(), "Anterior", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun getTask() {
-        val taskList = listOf(
-            Task("10", "Ir no shopping", Status.DOING),
-            Task("11", "Ir pra academia", Status.DOING),
-
-        )
-        taskAdapter.submitList(taskList)
-    }
+    private fun getTask() = listOf(
+        Task("0", "Criar nova tela do app", Status.DOING),
+        Task("1", "Validar informações na tela de login", Status.DOING),
+        Task("2", "Adicionar nova funcionalidade no app", Status.DOING),
+        Task("3", "Salvar token localmente", Status.DOING),
+        Task("2", "Criar funcionalidades no logout no app", Status.DOING),
+    )
 
     override fun onDestroyView() {
         super.onDestroyView()
