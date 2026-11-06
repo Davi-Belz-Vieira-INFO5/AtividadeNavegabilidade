@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "326786997835",
+    "firebase_url": "https://taskapp-38ecc-default-rtdb.firebaseio.com",
     "project_id": "taskapp-38ecc",
     "storage_bucket": "taskapp-38ecc.firebasestorage.app"
   },
