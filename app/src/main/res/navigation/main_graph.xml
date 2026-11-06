@@ -32,7 +32,9 @@
             tools:layout="@layout/fragment_recover_account" />
         <action
             android:id="@+id/action_global_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
     </navigation>
     <fragment
         android:id="@+id/splashFragment"
@@ -43,6 +45,11 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_splashFragment_to_authentication"
             app:destination="@id/authentication" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -52,9 +59,19 @@
         <action
             android:id="@+id/action_homeFragment_to_formTaskFragment2"
             app:destination="@id/formTaskFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_authentication"
+            app:destination="@id/authentication"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/formTaskFragment2"
         android:name="com.davi.atividade1.ui.FormTaskFragment"
-        android:label="FormTaskFragment" />
+        android:label="FormTaskFragment" >
+    <argument
+        android:name="task"
+        app:argType="com.davi.atividade1.data.model.Task"
+        app:nullable="true" />
+    </fragment>
 </navigation>

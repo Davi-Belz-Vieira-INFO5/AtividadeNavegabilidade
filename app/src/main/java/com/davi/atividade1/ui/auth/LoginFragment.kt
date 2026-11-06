@@ -6,15 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentLoginBinding
+import com.davi.atividade1.ui.BaseFragment
 import com.davi.atividade1.ui.util.showBottomSheet
+import com.davi.atividade1.util.FireBaseHelper
+import com.google.firebase.auth.FirebaseAuth
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +32,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initListener()
     }
 
@@ -49,12 +56,33 @@ class LoginFragment : Fragment() {
         val senha = binding.edittextSenha.text.toString().trim()
         if (email.isNotBlank()) {
             if (senha.isNotBlank()) {
-                findNavController().navigate(R.id.action_global_homeFragment)
+
+                hideKeyboard()
+                binding.progressBar.isVisible = true
+                loginUser(email,senha)
             } else {
                 showBottomSheet(message = getString(R.string.password_empty))
             }
         } else {
             showBottomSheet(message = getString(R.string.email_empty))
+        }
+    }
+
+    private fun loginUser(email: String, password: String){
+        try{
+            FireBaseHelper.getAuth().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        //conseguiu autenticar com sucesso
+                        findNavController().navigate((R.id.action_global_homeFragment))
+                    }else{
+                        //ocorreu falha na autenticação
+                        binding.progressBar.isVisible = false
+                        showBottomSheet(message = getString(FireBaseHelper.validError(task.exception?.message.toString())))
+                    }
+                }
+        }catch ( e: Exception){
+            Toast.makeText(requireContext(),e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

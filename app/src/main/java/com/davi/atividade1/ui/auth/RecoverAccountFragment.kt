@@ -6,15 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.davi.atividade1.R
 import com.davi.atividade1.databinding.FragmentRecoverAccountBinding
+import com.davi.atividade1.ui.BaseFragment
 import com.davi.atividade1.ui.util.initToolbar
 import com.davi.atividade1.ui.util.showBottomSheet
+import com.davi.atividade1.util.FireBaseHelper
+import com.google.firebase.auth.FirebaseAuth
 
-class RecoverAccountFragment : Fragment() {
+class RecoverAccountFragment : BaseFragment() {
 
     private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +35,7 @@ class RecoverAccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar(binding.toolbar)
+
         initListener()
     }
 
@@ -43,9 +49,29 @@ class RecoverAccountFragment : Fragment() {
         val email = binding.editextEmail.text.toString().trim()
 
         if (email.isNotBlank()){
-                Toast.makeText(requireContext(), "Tudo OK!", Toast.LENGTH_SHORT).show()
+
+            hideKeyboard()
+            binding.progressBar.isVisible=true
+            recoverAccountUser(email)
         }else{
             showBottomSheet(message = getString(R.string.email_empty))
+        }
+    }
+
+    private fun recoverAccountUser(email: String){
+        try {
+            FireBaseHelper.getAuth().sendPasswordResetEmail(email)
+                .addOnCompleteListener { task ->
+                    binding.progressBar.isVisible=false
+                    if (task.isSuccessful){
+                        showBottomSheet(message = getString(R.string.text_message_recover_account_fragment))
+                    }else{
+                        showBottomSheet(message = getString(FireBaseHelper.validError(task.exception?.message.toString())))
+                    }
+
+                }
+        }catch ( e: Exception){
+            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

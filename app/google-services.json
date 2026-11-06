@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326786997835",
+    "project_id": "taskapp-38ecc",
+    "storage_bucket": "taskapp-38ecc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326786997835:android:a9a748359c472ec238b7ce",
+        "android_client_info": {
+          "package_name": "com.davi.atividade1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Opss0n57rj-0jW67Gv0Nj3Jaa2edIOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
