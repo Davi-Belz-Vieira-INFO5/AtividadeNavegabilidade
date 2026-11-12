@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "326786997835",
+    "firebase_url": "https://taskapp-38ecc-default-rtdb.firebaseio.com",
+    "project_id": "taskapp-38ecc",
+    "storage_bucket": "taskapp-38ecc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326786997835:android:a9a748359c472ec238b7ce",
+        "android_client_info": {
+          "package_name": "com.davi.atividade1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326786997835-4njg34si6jsun1vt7tmvs053mof6hggs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.davi.atividade1",
+            "certificate_hash": "32db9f5ccd9b1a44fb53493ffcab72d652ff48a5"
+          }
+        },
+        {
+          "client_id": "326786997835-c4931jfrvdbffhabu95hi2cvm5hdol39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Opss0n57rj-0jW67Gv0Nj3Jaa2edIOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326786997835-c4931jfrvdbffhabu95hi2cvm5hdol39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
